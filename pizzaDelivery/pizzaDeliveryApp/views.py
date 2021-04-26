@@ -1,16 +1,21 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from .models import *
 # Create your views here.
-# from django.http import HttpResponse
 
 from django.shortcuts import render
 
-#funções para renderizar templates
+
+# funções para renderizar templates
 def home(request):
     return render(request, 'pizzaDeliveryApp/home.html')
 
+
+def listarProdutos(request):
+    produtos = Produto.objects.all()
+    produto = {'produtos': produtos}
+    return render(request, 'pizzaDeliveryApp/cardapio.html', produto)
+
+
 def cliente(request):
     return render(request, 'pizzaDeliveryApp/cliente.html')
-
-def menu(request):
-    return render(request, 'pizzaDeliveryApp/menu.html')
