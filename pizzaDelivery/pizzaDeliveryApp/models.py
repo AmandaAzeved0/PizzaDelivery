@@ -13,7 +13,7 @@ class Produto(models.Model):
     nome = models.CharField( max_length=50, null=False)
     descricao = models.CharField(max_length=50, null=False)
     preco = models.FloatField(null=False)
-    foto = models.ImageField(null=False)
+    foto = models.ImageField(null=True, blank=True)
     categoria = models.ForeignKey(
         Categoria,
         on_delete=models.CASCADE,
@@ -27,7 +27,7 @@ class Produto(models.Model):
 class Cliente(models.Model):
     nome = models.CharField(max_length=80, null=False)
     telefone = models.CharField(max_length=80, null=False)
-    email = models.EmailField(null=True, upload_to="images")
+    email = models.EmailField(null=True)
     # endereco =
 
     def __str__(self):

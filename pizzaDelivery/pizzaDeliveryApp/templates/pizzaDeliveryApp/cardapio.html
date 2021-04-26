@@ -1,5 +1,5 @@
 {% extends 'pizzaDeliveryApp/main.html'%}
-
+{% load static %}
 {% block content %}
 <br>
 <div class="container">
@@ -21,7 +21,7 @@
 								<td> {{i.nome}}</td>
 								<td> {{i.categoria}}</td>
 								<td> {{i.preco}}</td>
-								<td> {{i.foto}}</td>
+								<td><img src="{{request.produto.foto.url}}" alt="okk"></td>
 							</tr>
 						{% endfor %}
 
